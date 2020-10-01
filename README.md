@@ -1,6 +1,6 @@
 # Project Facens Game Store
 
-## Decription
+## Description
 
 The facens game store is a digital games store that brings together the best content from the desktop and mobile world
 
@@ -11,7 +11,7 @@ The facens game store is a digital games store that brings together the best con
 ## Class Diagram
 ![](docs/diagram.jpg)
 
-## Tecnologies
+## Technologies
 
 ## Status Project
 
