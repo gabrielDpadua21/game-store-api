@@ -12,13 +12,18 @@ The facens game store is a digital games store that brings together the best con
 ![](docs/diagram.jpg)
 
 ## Technologies
+ - Java
+ - Maven
+ - Spring Boot
+ - H2
+ - Postgres
 
 ## Status Project
 
 - Development
 
 ## Features
-- [ ] User Register
+- [x] User Register
 - [ ] Product Register
 - [ ] Order Register
 - [ ] Payment Checkout
