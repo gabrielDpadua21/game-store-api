@@ -4,13 +4,6 @@
 
 The facens game store is a digital games store that brings together the best content from the desktop and mobile world
 
-## Architecture
-
-![](docs/architecture.jpg)
-
-## Class Diagram
-![](docs/diagram.jpg)
-
 ## Technologies
  - Java
  - Maven
@@ -27,3 +20,15 @@ The facens game store is a digital games store that brings together the best con
 - [ ] Product Register
 - [ ] Order Register
 - [ ] Payment Checkout
+
+## Architecture
+![](docs/architecture.jpg)
+
+## DER
+![](docs/der.jpg)
+
+## Logic Model
+![](docs/logic.jpg)
+
+## Class Diagram
+![](docs/diagram.jpg)
