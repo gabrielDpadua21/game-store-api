@@ -2,6 +2,7 @@ package com.facensgammingstore.gammingstore.config;
 
 import com.facensgammingstore.gammingstore.entities.Order;
 import com.facensgammingstore.gammingstore.entities.User;
+import com.facensgammingstore.gammingstore.entities.enums.OrderStatus;
 import com.facensgammingstore.gammingstore.repositories.OrderRepository;
 import com.facensgammingstore.gammingstore.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,9 @@ public class TestConfig implements CommandLineRunner {
         User u3 = new User(null,  "Castiel", "cas@gmail.com", "0000001", "god");
         User u4 = new User(null, "Crowley", "kingdevil@gmail.com", "000666", "hell");
 
-        Order o1 = new Order(null, Instant.parse("2020-09-20T19:53:07Z"), u1);
-        Order o2 = new Order(null, Instant.parse("2020-08-20T14:53:07Z"), u2);
-        Order o3 = new Order(null, Instant.parse("2020-07-20T21:53:07Z"), u3);
+        Order o1 = new Order(null, Instant.parse("2020-09-20T19:53:07Z"), OrderStatus.DELIVERED, u1);
+        Order o2 = new Order(null, Instant.parse("2020-08-20T14:53:07Z"), OrderStatus.WAITING_PAYMENT, u2);
+        Order o3 = new Order(null, Instant.parse("2020-07-20T21:53:07Z"), OrderStatus.SHIPPED, u3);
 
         userRepository.saveAll(Arrays.asList(u1, u2, u3, u4));
 
