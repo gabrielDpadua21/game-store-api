@@ -16,10 +16,14 @@ The facens game store is a digital games store that brings together the best con
 - Development
 
 ## Features
-- [x] User Register
-- [ ] Product Register
-- [ ] Order Register
-- [ ] Payment Checkout
+- [x] User
+- [ ] Product
+- [ ] Category
+- [ ] Order
+- [ ] Payment
+- [ ] Login
+- [ ] Security
+- [ ] Deploy
 
 ## Architecture
 ![](docs/architecture.jpg)
