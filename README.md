@@ -17,7 +17,7 @@ The facens game store is a digital games store that brings together the best con
 
 ## Features
 - [x] User
-- [ ] Product
+- [x] Product
 - [x] Category
 - [x] Order
 - [ ] Payment
