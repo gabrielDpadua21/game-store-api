@@ -1,8 +1,10 @@
 package com.facensgammingstore.gammingstore.config;
 
+import com.facensgammingstore.gammingstore.entities.Category;
 import com.facensgammingstore.gammingstore.entities.Order;
 import com.facensgammingstore.gammingstore.entities.User;
 import com.facensgammingstore.gammingstore.entities.enums.OrderStatus;
+import com.facensgammingstore.gammingstore.repositories.CategoryRepository;
 import com.facensgammingstore.gammingstore.repositories.OrderRepository;
 import com.facensgammingstore.gammingstore.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -36,8 +41,15 @@ public class TestConfig implements CommandLineRunner {
         Order o2 = new Order(null, Instant.parse("2020-08-20T14:53:07Z"), OrderStatus.WAITING_PAYMENT, u2);
         Order o3 = new Order(null, Instant.parse("2020-07-20T21:53:07Z"), OrderStatus.SHIPPED, u3);
 
+        Category c1 = new Category(null, "Ação");
+        Category c2 = new Category(null, "Aventura");
+        Category c3 = new Category(null, "Terror");
+        Category c4 = new Category(null, "RPG");
+
         userRepository.saveAll(Arrays.asList(u1, u2, u3, u4));
 
         orderRepository.saveAll(Arrays.asList(o1, o2, o3));
+
+        categoryRepository.saveAll(Arrays.asList(c1, c2, c3, c4));
     }
 }
