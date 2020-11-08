@@ -56,6 +56,11 @@ public class TestConfig implements CommandLineRunner {
         Product p3 = new Product(null, "Rise of the Tomb Raider", "Best Lara Adventure", 102.85, "");
         Product p4 = new Product(null, "Shadow of the Tomb Raider", "Last Lara Adventure", 70.85, "");
 
+        p1.getCategories().add(c1);
+        p2.getCategories().add(c2);
+        p3.getCategories().add(c2);
+        p4.getCategories().add(c2);
+
         userRepository.saveAll(Arrays.asList(u1, u2, u3, u4));
 
         orderRepository.saveAll(Arrays.asList(o1, o2, o3));
