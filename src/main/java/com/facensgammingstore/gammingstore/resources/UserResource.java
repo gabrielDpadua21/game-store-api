@@ -1,5 +1,6 @@
 package com.facensgammingstore.gammingstore.resources;
 
+import com.facensgammingstore.gammingstore.entities.Login;
 import com.facensgammingstore.gammingstore.entities.User;
 import com.facensgammingstore.gammingstore.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,22 @@ public class UserResource {
     @GetMapping(value = "/mail/{email}")
     public ResponseEntity<User> findByEmail(@PathVariable String email) {
         User user = services.findByEmail(email);
+        return ResponseEntity.ok().body(user);
+    }
+
+    @PostMapping(value = "/login")
+    public ResponseEntity<User> login(@RequestBody Login obj) {
+        User user = services.findByEmail(obj.getEmail());
+        if(user.getPassword().contentEquals(obj.getPassword())) {
+            user.setPassword("");
+            return ResponseEntity.ok().body(user);
+        }
+
+        user.setPassword("");
+        user.setPhone("");
+        user.setName("error");
+        user.setEmail("error");
+
         return ResponseEntity.ok().body(user);
     }
 
