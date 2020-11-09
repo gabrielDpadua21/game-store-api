@@ -8,8 +8,8 @@ The facens game store is a digital games store that brings together the best con
  - Java
  - Maven
  - Spring Boot
- - H2
- - Postgres
+ - H2 (In Development)
+ - MySql
 
 ## Status Project
 
@@ -21,7 +21,7 @@ The facens game store is a digital games store that brings together the best con
 - [x] Category
 - [x] Order
 - [ ] Payment
-- [ ] Login
+- [x] Login
 - [ ] Authentication
 - [ ] Security
 - [ ] Deploy
