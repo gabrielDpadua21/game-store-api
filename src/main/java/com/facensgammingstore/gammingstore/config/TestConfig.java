@@ -1,14 +1,8 @@
 package com.facensgammingstore.gammingstore.config;
 
-import com.facensgammingstore.gammingstore.entities.Category;
-import com.facensgammingstore.gammingstore.entities.Order;
-import com.facensgammingstore.gammingstore.entities.Product;
-import com.facensgammingstore.gammingstore.entities.User;
+import com.facensgammingstore.gammingstore.entities.*;
 import com.facensgammingstore.gammingstore.entities.enums.OrderStatus;
-import com.facensgammingstore.gammingstore.repositories.CategoryRepository;
-import com.facensgammingstore.gammingstore.repositories.OrderRepository;
-import com.facensgammingstore.gammingstore.repositories.ProductRepository;
-import com.facensgammingstore.gammingstore.repositories.UserRepository;
+import com.facensgammingstore.gammingstore.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -33,6 +27,9 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private OrderItemRepository orderItemRepository;
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -56,6 +53,11 @@ public class TestConfig implements CommandLineRunner {
         Product p3 = new Product(null, "Rise of the Tomb Raider", "Best Lara Adventure", 102.85, "");
         Product p4 = new Product(null, "Shadow of the Tomb Raider", "Last Lara Adventure", 70.85, "");
 
+        OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
+        OrderItem oi2 = new OrderItem(o1, p2, 2, p2.getPrice());
+        OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
+        OrderItem oi4 = new OrderItem(o3, p4, 2, p4.getPrice());
+
         p1.getCategories().add(c1);
         p2.getCategories().add(c2);
         p3.getCategories().add(c2);
@@ -68,5 +70,7 @@ public class TestConfig implements CommandLineRunner {
         categoryRepository.saveAll(Arrays.asList(c1, c2, c3, c4));
 
         productRepository.saveAll(Arrays.asList(p1, p2, p3, p4));
+
+        orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
     }
 }

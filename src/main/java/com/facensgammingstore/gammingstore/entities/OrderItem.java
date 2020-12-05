@@ -1,6 +1,7 @@
 package com.facensgammingstore.gammingstore.entities;
 
 import com.facensgammingstore.gammingstore.entities.keys.OrderItemPK;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -12,7 +13,8 @@ public class OrderItem {
     private static final long serialVersionUID = 1L;
 
     @EmbeddedId
-    private OrderItemPK id;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private OrderItemPK id = new OrderItemPK();
 
     private Integer quantity;
     private Double price;
@@ -58,6 +60,10 @@ public class OrderItem {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Double getSubTotal() {
+        return price * quantity;
     }
 
     @Override
