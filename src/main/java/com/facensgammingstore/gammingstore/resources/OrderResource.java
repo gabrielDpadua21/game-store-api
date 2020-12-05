@@ -1,5 +1,6 @@
 package com.facensgammingstore.gammingstore.resources;
 
+import com.facensgammingstore.gammingstore.DTO.OrdersDTO;
 import com.facensgammingstore.gammingstore.entities.Order;
 import com.facensgammingstore.gammingstore.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/orders")
@@ -19,10 +21,10 @@ public class OrderResource {
     private OrderService services;
 
     @GetMapping
-    public ResponseEntity<List<Order>> findAll() {
+    public ResponseEntity<List<OrdersDTO>> findAll() {
         List<Order> list = services.findAll();
-
-        return ResponseEntity.ok().body(list);
+        List<OrdersDTO> listDto = list.stream().map(item -> new OrdersDTO(item)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDto);
     }
 
     @GetMapping(value = "/{id}")
