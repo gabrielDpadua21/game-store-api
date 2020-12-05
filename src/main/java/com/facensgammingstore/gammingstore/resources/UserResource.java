@@ -1,5 +1,6 @@
 package com.facensgammingstore.gammingstore.resources;
 
+import com.facensgammingstore.gammingstore.DTO.UserDTO;
 import com.facensgammingstore.gammingstore.entities.Login;
 import com.facensgammingstore.gammingstore.entities.User;
 import com.facensgammingstore.gammingstore.services.UserServices;
@@ -38,10 +39,11 @@ public class UserResource {
     }
 
     @PostMapping
-    public ResponseEntity<User> insert(@RequestBody User obj) {
+    public ResponseEntity<UserDTO> insert(@RequestBody User obj) {
         obj = services.insert(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-        return ResponseEntity.created(uri).body(obj);
+        UserDTO objDto = new UserDTO(obj);
+        return ResponseEntity.created(uri).body(objDto);
     }
 
 }

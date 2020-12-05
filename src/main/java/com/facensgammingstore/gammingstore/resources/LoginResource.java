@@ -1,5 +1,6 @@
 package com.facensgammingstore.gammingstore.resources;
 
+import com.facensgammingstore.gammingstore.DTO.UserDTO;
 import com.facensgammingstore.gammingstore.entities.Login;
 import com.facensgammingstore.gammingstore.entities.User;
 import com.facensgammingstore.gammingstore.services.LoginService;
@@ -16,10 +17,10 @@ public class LoginResource {
     @Autowired
     private LoginService services;
 
-    public ResponseEntity<User> login(@RequestBody Login obj) {
+    public ResponseEntity<UserDTO> login(@RequestBody Login obj) {
         User user = services.LoginAuthentication(obj.getEmail(), obj.getPassword());
-
-        return ResponseEntity.ok().body(user);
+        UserDTO userDto = new UserDTO(user);
+        return ResponseEntity.ok().body(userDto);
     }
 
 }
