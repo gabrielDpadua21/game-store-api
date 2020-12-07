@@ -47,4 +47,23 @@ public class ProductResource {
         return ResponseEntity.ok().body(objDto);
     }
 
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<ProductDTO> insert(@PathVariable Long id, @RequestBody ProductCategoryDTO postObj) {
+        Product objProduct = service.findById(id);
+        objProduct.setDescription(postObj.getDescription());
+        objProduct.setPrice(postObj.getPrice());
+        objProduct.setName(postObj.getName());
+        objProduct.setImageUri(postObj.getImageUri());
+        Product newProduct = service.update(objProduct);
+        ProductDTO objDto = new ProductDTO(newProduct);
+        return ResponseEntity.ok().body(objDto);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Long> insert(@PathVariable Long id) {
+        Product objProduct = service.findById(id);
+        service.delete(objProduct);
+        return ResponseEntity.ok().body(1l);
+    }
+
 }
