@@ -5,11 +5,16 @@
 The facens game store is a digital games store that brings together the best content from the desktop and mobile world
 
 ## Technologies
+
+![](docs/spring.jpeg)
+
+![](docs/postgres.jpg)
+
  - Java
  - Maven
  - Spring Boot
  - H2 (In Development)
- - MySql
+ - Postgress
 
 ## Status Project
 
