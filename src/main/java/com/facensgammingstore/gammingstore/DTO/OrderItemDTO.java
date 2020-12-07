@@ -1,6 +1,7 @@
 package com.facensgammingstore.gammingstore.DTO;
 
 import com.facensgammingstore.gammingstore.entities.OrderItem;
+import com.facensgammingstore.gammingstore.entities.Product;
 
 import java.io.Serializable;
 
@@ -10,12 +11,22 @@ public class OrderItemDTO implements Serializable {
 
     private Integer quantity;
     private Double price;
+    private ProductDTO product;
 
     public OrderItemDTO() {}
 
     public OrderItemDTO(OrderItem obj) {
         quantity = obj.getQuantity();
         price = obj.getPrice();
+        product = new ProductDTO(obj.getProduct());
+    }
+
+    public ProductDTO getProduct() {
+        return product;
+    }
+
+    public void setProduct(ProductDTO product) {
+        this.product = product;
     }
 
     public Integer getQuantity() {
