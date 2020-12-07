@@ -1,6 +1,7 @@
 package com.facensgammingstore.gammingstore.services;
 
 import com.facensgammingstore.gammingstore.entities.Order;
+import com.facensgammingstore.gammingstore.entities.Product;
 import com.facensgammingstore.gammingstore.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,5 +24,7 @@ public class OrderService {
 
         return obj.get();
     }
+
+    public Order insert(Order order) { return repository.save(order); }
 
 }
